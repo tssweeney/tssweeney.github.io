@@ -1,0 +1,18 @@
+@media (max-width: 479px)
+{
+	.navigation
+	{
+		width: 100%;
+		max-width: inherit;
+		padding-top: 8px;
+	}
+	.navigation .nav-link
+	{
+		display: inline;
+	}
+	
+	H1.logo
+	{
+		display: none;
+	}
+}
