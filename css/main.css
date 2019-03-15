@@ -2,12 +2,6 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
 
-/*
-	Identity by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 /* Reset */
 
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -84,19 +78,14 @@
 
 	body {
 		height: 100%;
-		/*background-color: #ffffff;
-		background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-image: url("images/overlay.png"), linear-gradient(60deg, rgba(255, 165, 150, 0.5) 5%, rgba(0, 228, 255, 0.35)), url("../../images/bg.jpg");
-		background-repeat: repeat,			no-repeat,			no-repeat;*/
 		background-size: 100px 100px, cover,				cover;
 		background-position: top left,		center center,		bottom center;
 		background-attachment: fixed,			fixed,				fixed;
 
 		/* Generated with http://gradient.quasi.ink */
 		background-size: cover;
-		background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAADtElEQVQ4Ty2T2W4bZQCFv9+zeBaP7Tje4qQxid0UQtK0CAm4BFRUiSueAcQFXFTqBdtdJSQQL9HngDsESIAoasPSKm0c20m8jmPHy8zYY8+gupwH+HSOdD6RXd8KAyLk83k0zeDo8RNipk5mNcFlv8/Cc1EiEqosMQ8WqGaUqGngL+YIIbAsi3jMQpWjHB4eIoz8ldC5HLGzt4cqq9QqJ3iei2GqrKaSJDSTmePiOhNmvo+ViuPOZ1iJGL7vo8sqa7k8+UyePx89RFx9970wEJBKpEhYcTzHo3ZSod1uYugacVXHGw7xHJf9gz02S1s0241lu3aryYqVZKdUZtgfoKoq4vYXn4eRqIIsqRiGgRHVOXl2TN/u0Tk7p3vaIK5qRBWZg4N90rks3swjDAKaZ6dcNG2SMYvtK0WsZALxxt07oevPiSgysqSwkkgw7PWZT31UoPW0SvXwH5KZNPt7uxQ21+l2uwRzn8CbMb0ck44nKa5v0Gw2Ee9/923Y6HSI6hqKEkWVZS7sHr4zI6YoTNo9/v71dyRJ4uD6q2yVtnie0eVgCTSERFwzkAKo1WqIj+7fD3/74wF21yZYLMhn8xQ3i4xGIwLPQ3Z9fvz+ByJByPX/gaap47kO7eopE7u3BGuSgqZpiA/ufRP+/NMv9Gp1wtmcbGGTW7dvMQmnjIZ9xHjKk0ePGHZt8vks68UNyjsl/KnHyeMjhq02gTNl4c8olUqINz++E56eVJk7HpHFAmc4onRtBzOzQoQQgwhHfx0y6HTIrKbY3d8llUrSOD9l0h8Qk1SmowlXy9uUy2XEO5/dCxvVKsF4xPDCxplOya+tEU9liISQ0qK0qsc06zVW4ibXdsr4/gxFkrns2RTSWZgv2FgrsH21jHj7q6/D85MKwnPxvTG6rpNbKxAGMhedLpuZNINWg38fPqCQSbFdLBK3TGauR8+2KWRyRITAHU/Yv3GAeOvLe+Hkso8hYO6OX6hkWvheiDeaMOl2sM/qMHOWDa8UCqiKROXpM0zDIGWtYGg6juOwXXoJUfrw0zCRiKMHPlEBUVVZTh3YQ8YXA5rHxzD1WI3paLIgm0lTqTxDV6PkMnm88QRVVshmc+TWcojdT+6GYRig+h47xU10RcF3Pc7qDbpnDfrPzzqbooYBhewqZsygXq+TSiRJJ1epVio44wk3Dl5jo7j+AhgJQ1pHT0jHTF6/eRNDjdKzB1y0OvTOz7jsdUmoKlZMWxoyHA5RJAVJRGDB0vNkMsm1V17mP6CBtvYN7vshAAAAAElFTkSuQmCC");
+		/* background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAADtElEQVQ4Ty2T2W4bZQCFv9+zeBaP7Tje4qQxid0UQtK0CAm4BFRUiSueAcQFXFTqBdtdJSQQL9HngDsESIAoasPSKm0c20m8jmPHy8zYY8+gupwH+HSOdD6RXd8KAyLk83k0zeDo8RNipk5mNcFlv8/Cc1EiEqosMQ8WqGaUqGngL+YIIbAsi3jMQpWjHB4eIoz8ldC5HLGzt4cqq9QqJ3iei2GqrKaSJDSTmePiOhNmvo+ViuPOZ1iJGL7vo8sqa7k8+UyePx89RFx9970wEJBKpEhYcTzHo3ZSod1uYugacVXHGw7xHJf9gz02S1s0241lu3aryYqVZKdUZtgfoKoq4vYXn4eRqIIsqRiGgRHVOXl2TN/u0Tk7p3vaIK5qRBWZg4N90rks3swjDAKaZ6dcNG2SMYvtK0WsZALxxt07oevPiSgysqSwkkgw7PWZT31UoPW0SvXwH5KZNPt7uxQ21+l2uwRzn8CbMb0ck44nKa5v0Gw2Ee9/923Y6HSI6hqKEkWVZS7sHr4zI6YoTNo9/v71dyRJ4uD6q2yVtnie0eVgCTSERFwzkAKo1WqIj+7fD3/74wF21yZYLMhn8xQ3i4xGIwLPQ3Z9fvz+ByJByPX/gaap47kO7eopE7u3BGuSgqZpiA/ufRP+/NMv9Gp1wtmcbGGTW7dvMQmnjIZ9xHjKk0ePGHZt8vks68UNyjsl/KnHyeMjhq02gTNl4c8olUqINz++E56eVJk7HpHFAmc4onRtBzOzQoQQgwhHfx0y6HTIrKbY3d8llUrSOD9l0h8Qk1SmowlXy9uUy2XEO5/dCxvVKsF4xPDCxplOya+tEU9liISQ0qK0qsc06zVW4ibXdsr4/gxFkrns2RTSWZgv2FgrsH21jHj7q6/D85MKwnPxvTG6rpNbKxAGMhedLpuZNINWg38fPqCQSbFdLBK3TGauR8+2KWRyRITAHU/Yv3GAeOvLe+Hkso8hYO6OX6hkWvheiDeaMOl2sM/qMHOWDa8UCqiKROXpM0zDIGWtYGg6juOwXXoJUfrw0zCRiKMHPlEBUVVZTh3YQ8YXA5rHxzD1WI3paLIgm0lTqTxDV6PkMnm88QRVVshmc+TWcojdT+6GYRig+h47xU10RcF3Pc7qDbpnDfrPzzqbooYBhewqZsygXq+TSiRJJ1epVio44wk3Dl5jo7j+AhgJQ1pHT0jHTF6/eRNDjdKzB1y0OvTOz7jsdUmoKlZMWxoyHA5RJAVJRGDB0vNkMsm1V17mP6CBtvYN7vshAAAAAElFTkSuQmCC"); */
+		background-image: url("./images/background.jpg")
 	}
 
 		body:after {
@@ -109,7 +98,7 @@
 			height: inherit;
 			opacity: 0;
 			z-index: 1;
-			background-color: #ffffff;
+			background-color: #ffffff; 
 			background-image: url("images/overlay.png"), -moz-linear-gradient(60deg, rgba(12,12,182, 0.5) 5%, rgba(0, 228, 255, 0.35));
 			background-image: url("images/overlay.png"), -webkit-linear-gradient(60deg, rgba(12,12,182, 0.5) 5%, rgba(0, 228, 255, 0.35));
 			background-image: url("images/overlay.png"), -ms-linear-gradient(60deg, rgba(12,12,182, 0.5) 5%, rgba(0, 228, 255, 0.35));
