@@ -1,0 +1,28 @@
+.section:before {
+  content: '';
+  display: block;
+  position: relative;
+  /* top: 10%; */
+  left: 25%;
+  width: calc(50%);
+  height: 1px;
+  z-index: -1;
+  background: #c8cccf;
+}
+
+.section > ul.items {
+  text-align: left;
+  text-transform: capitalize;
+}
+
+.normal {
+  text-transform: initial;
+}
+
+a {
+  text-decoration: underline;
+}
+
+#main {
+  max-width: 1000px;
+}
