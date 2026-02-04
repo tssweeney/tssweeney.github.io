@@ -1,28 +1,360 @@
-.section:before {
-  content: '';
-  display: block;
-  position: relative;
-  /* top: 10%; */
-  left: 25%;
-  width: calc(50%);
-  height: 1px;
-  z-index: -1;
-  background: #c8cccf;
+/* Tim Sweeney - Personal Site */
+
+:root {
+	--color-text: #2d3748;
+	--color-text-muted: #718096;
+	--color-text-light: #a0aec0;
+	--color-accent: #667eea;
+	--color-accent-hover: #5a67d8;
+	--color-border: #e2e8f0;
+	--color-bg-card: #f7fafc;
+	--color-bg-stat: #edf2f7;
 }
 
-.section > ul.items {
-  text-align: left;
-  text-transform: capitalize;
+/* Base overrides */
+#main {
+	max-width: 640px;
+	padding: 3em 2.5em;
+	border-radius: 16px;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-.normal {
-  text-transform: initial;
+body, input, select, textarea {
+	letter-spacing: 0.02em;
+	text-transform: none;
+	line-height: 1.7;
+	color: var(--color-text);
 }
 
 a {
-  text-decoration: underline;
+	text-decoration: none;
+	color: var(--color-accent);
+	transition: color 0.2s ease;
 }
 
-#main {
-  max-width: 1000px;
+a:hover {
+	color: var(--color-accent-hover);
+}
+
+strong, b {
+	color: var(--color-text);
+	font-weight: 600;
+}
+
+/* Avatar */
+#main .avatar img {
+	width: 140px;
+	height: 140px;
+	box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--color-border);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#main .avatar img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--color-accent);
+}
+
+#main .avatar:before {
+	display: none;
+}
+
+/* Header */
+header h1 {
+	font-size: 2em;
+	letter-spacing: -0.02em;
+	text-transform: none;
+	margin-bottom: 0.25em;
+	color: var(--color-text);
+}
+
+.tagline {
+	font-size: 1.1em;
+	color: var(--color-text-muted);
+	margin-bottom: 0;
+	font-style: normal;
+	font-weight: 300;
+}
+
+/* Social icons */
+ul.icons {
+	margin-top: 0.5em;
+}
+
+ul.icons li a {
+	border-color: var(--color-border);
+	width: 2.75em;
+	height: 2.75em;
+	line-height: 2.75em;
+}
+
+ul.icons li a:before {
+	font-size: 1.25rem;
+	color: var(--color-text-muted);
+	text-shadow: none;
+}
+
+ul.icons li a:hover {
+	border-color: var(--color-accent);
+	background: var(--color-accent);
+}
+
+ul.icons li a:hover:before {
+	color: #fff;
+	text-shadow: none;
+}
+
+/* Section headings */
+h2 {
+	font-size: 0.7em;
+	font-weight: 600;
+	color: var(--color-text-light);
+	margin: 3em 0 1.25em 0;
+	padding: 0;
+	border: none;
+	text-transform: uppercase;
+	letter-spacing: 0.15em;
+}
+
+/* Featured project card */
+.featured {
+	margin-top: 2.5em;
+}
+
+.project-card {
+	background: var(--color-bg-card);
+	border: 1px solid var(--color-border);
+	border-radius: 12px;
+	padding: 2em;
+	margin-top: 1em;
+	text-align: center;
+}
+
+.project-card h3 {
+	font-size: 1.75em;
+	font-weight: 600;
+	margin: 0 0 0.2em 0;
+	letter-spacing: -0.02em;
+}
+
+.project-card h3 a {
+	color: var(--color-text);
+}
+
+.project-card h3 a:hover {
+	color: var(--color-accent);
+}
+
+.project-role {
+	font-size: 0.9em;
+	color: var(--color-text-muted);
+	margin: 0 0 1.25em 0;
+}
+
+.project-role a {
+	color: var(--color-text-muted);
+	text-decoration: underline;
+	text-decoration-color: var(--color-border);
+	text-underline-offset: 2px;
+}
+
+.project-role a:hover {
+	color: var(--color-accent);
+	text-decoration-color: var(--color-accent);
+}
+
+.project-desc {
+	font-size: 0.95em;
+	line-height: 1.7;
+	margin-bottom: 1.5em;
+	color: var(--color-text);
+}
+
+.project-stats {
+	display: flex;
+	justify-content: center;
+	gap: 0.75em;
+	flex-wrap: wrap;
+	margin-bottom: 1.75em;
+}
+
+.project-stats span {
+	font-size: 0.8em;
+	font-weight: 500;
+	color: var(--color-text);
+	background: var(--color-bg-stat);
+	padding: 0.5em 1em;
+	border-radius: 6px;
+	border: none;
+}
+
+.project-links {
+	display: flex;
+	justify-content: center;
+	gap: 0.75em;
+}
+
+.project-links .button {
+	font-size: 0.85em;
+	font-weight: 500;
+	padding: 0 1.75em;
+	height: 2.5em;
+	line-height: 2.5em;
+	border-radius: 6px;
+	border: none;
+	background: var(--color-accent);
+	color: #fff !important;
+	text-transform: none;
+	letter-spacing: 0;
+}
+
+.project-links .button:hover {
+	background: var(--color-accent-hover);
+}
+
+.project-links .button:last-child {
+	background: transparent;
+	border: 1px solid var(--color-border);
+	color: var(--color-text) !important;
+}
+
+.project-links .button:last-child:hover {
+	border-color: var(--color-accent);
+	color: var(--color-accent) !important;
+	background: transparent;
+}
+
+/* Experience timeline */
+.experience {
+	text-align: left;
+}
+
+.timeline {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.timeline li {
+	display: flex;
+	align-items: baseline;
+	padding: 0.85em 0;
+	font-size: 0.95em;
+	border: none;
+}
+
+.year {
+	flex: 0 0 4em;
+	font-size: 0.85em;
+	font-weight: 500;
+	color: var(--color-text-light);
+}
+
+.role {
+	flex: 1;
+	color: var(--color-text-muted);
+}
+
+.role strong {
+	color: var(--color-text);
+}
+
+/* Writing section */
+.writing {
+	text-align: left;
+}
+
+.writing-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.writing-list li {
+	padding: 0.85em 0;
+	font-size: 0.95em;
+	line-height: 1.5;
+	border: none;
+}
+
+.writing-list li a {
+	color: var(--color-text);
+	font-weight: 500;
+}
+
+.writing-list li a:hover {
+	color: var(--color-accent);
+}
+
+.pub {
+	display: inline;
+	font-size: 0.85em;
+	color: var(--color-text-light);
+	margin-left: 0.5em;
+}
+
+.pub:before {
+	content: "·";
+	margin-right: 0.5em;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+	#main {
+		padding: 2.5em 1.5em;
+		border-radius: 12px;
+	}
+
+	#main .avatar img {
+		width: 120px;
+		height: 120px;
+	}
+
+	header h1 {
+		font-size: 1.6em;
+	}
+
+	.project-card {
+		padding: 1.5em;
+	}
+
+	.project-card h3 {
+		font-size: 1.4em;
+	}
+
+	.project-stats {
+		gap: 0.5em;
+	}
+
+	.project-stats span {
+		font-size: 0.7em;
+		padding: 0.4em 0.75em;
+	}
+
+	.project-links {
+		flex-direction: column;
+	}
+
+	.project-links .button {
+		width: 100%;
+	}
+
+	.timeline li {
+		flex-direction: column;
+		gap: 0.15em;
+		padding: 0.75em 0;
+	}
+
+	.writing-list li {
+		display: block;
+	}
+
+	.pub {
+		display: block;
+		margin-left: 0;
+		margin-top: 0.25em;
+	}
+
+	.pub:before {
+		display: none;
+	}
 }

@@ -1,101 +1,768 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 
 <head>
-	<title>Tim Sweeney</title>
+	<title>Tim Sweeney | Building Developer Tools for AI</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="./css/main.css" />
-	<link rel="stylesheet" href="./css/custom.css" />
-	<noscript>
-		<link rel="stylesheet" href="./css/noscript.css" />
-	</noscript>
+	<meta name="description" content="Tim Sweeney is a Principal Software Engineer at Weights & Biases and lead maintainer of Weave, an open-source observability platform for LLM applications." />
+
+	<!-- Open Graph / Social Media -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="Tim Sweeney | Building Developer Tools for AI" />
+	<meta property="og:description" content="Lead maintainer of Weave at Weights & Biases. Building observability and evaluation tools for LLM applications." />
+	<meta property="og:url" content="https://timssweeney.com" />
+	<meta property="og:image" content="https://timssweeney.com/images/headshot.png" />
+
+	<!-- Twitter/X Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Tim Sweeney | Building Developer Tools for AI" />
+	<meta name="twitter:description" content="Lead maintainer of Weave at Weights & Biases. Building observability and evaluation tools for LLM applications." />
+	<meta name="twitter:image" content="https://timssweeney.com/images/headshot.png" />
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
+	<link rel="canonical" href="https://timssweeney.com" />
+
+	<style>
+		:root {
+			--bg-primary: #0a0a0b;
+			--bg-secondary: #111113;
+			--bg-tertiary: #18181b;
+			--bg-card: #1c1c1f;
+			--border: #27272a;
+			--border-subtle: #1f1f23;
+			--text-primary: #fafafa;
+			--text-secondary: #a1a1aa;
+			--text-tertiary: #71717a;
+			--accent: #22d3ee;
+			--accent-dim: rgba(34, 211, 238, 0.15);
+			--accent-glow: rgba(34, 211, 238, 0.4);
+			--gradient-start: #06b6d4;
+			--gradient-end: #8b5cf6;
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html {
+			font-size: 16px;
+			scroll-behavior: smooth;
+			-webkit-text-size-adjust: 100%;
+		}
+
+		body {
+			font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+			background: var(--bg-primary);
+			color: var(--text-primary);
+			line-height: 1.6;
+			min-height: 100vh;
+			min-height: 100dvh;
+			overflow-x: hidden;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
+		/* Animated background */
+		.bg-pattern {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			opacity: 0.4;
+			pointer-events: none;
+		}
+
+		.bg-pattern::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background:
+				radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-dim), transparent),
+				radial-gradient(ellipse 60% 40% at 100% 0%, rgba(139, 92, 246, 0.1), transparent);
+		}
+
+		/* Grid pattern */
+		.grid-pattern {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 0;
+			opacity: 0.03;
+			pointer-events: none;
+			background-image:
+				linear-gradient(var(--text-tertiary) 1px, transparent 1px),
+				linear-gradient(90deg, var(--text-tertiary) 1px, transparent 1px);
+			background-size: 60px 60px;
+		}
+
+		/* Main container */
+		.container {
+			position: relative;
+			z-index: 1;
+			max-width: 640px;
+			margin: 0 auto;
+			padding: 4rem 1.5rem 3rem;
+			width: 100%;
+		}
+
+		/* Header */
+		.header {
+			text-align: center;
+			margin-bottom: 3rem;
+			animation: fadeUp 0.8s ease-out;
+		}
+
+		@keyframes fadeUp {
+			from {
+				opacity: 0;
+				transform: translateY(20px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		.avatar {
+			position: relative;
+			width: 120px;
+			height: 120px;
+			margin: 0 auto 1.5rem;
+		}
+
+		.avatar img {
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			object-fit: cover;
+			border: 2px solid var(--border);
+			transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+		}
+
+		.avatar::before {
+			content: '';
+			position: absolute;
+			inset: -4px;
+			border-radius: 50%;
+			background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+			opacity: 0;
+			transition: opacity 0.4s ease;
+			z-index: -1;
+		}
+
+		.avatar:hover::before {
+			opacity: 1;
+		}
+
+		.avatar:hover img {
+			border-color: transparent;
+			transform: scale(1.02);
+		}
+
+		.name {
+			font-size: 2rem;
+			font-weight: 600;
+			letter-spacing: -0.03em;
+			margin-bottom: 0.5rem;
+			background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		.tagline {
+			font-size: 1.05rem;
+			color: var(--text-secondary);
+			font-weight: 400;
+		}
+
+		/* Social icons */
+		.social {
+			display: flex;
+			justify-content: center;
+			gap: 0.75rem;
+			margin-top: 1.25rem;
+		}
+
+		.social a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 42px;
+			height: 42px;
+			border-radius: 10px;
+			background: var(--bg-tertiary);
+			border: 1px solid var(--border);
+			color: var(--text-secondary);
+			font-size: 1.1rem;
+			transition: all 0.25s ease;
+		}
+
+		.social a:hover {
+			background: var(--accent-dim);
+			border-color: var(--accent);
+			color: var(--accent);
+			transform: translateY(-2px);
+		}
+
+		/* Section styling */
+		.section {
+			margin-bottom: 2.5rem;
+			animation: fadeUp 0.8s ease-out backwards;
+		}
+
+		.section:nth-child(2) { animation-delay: 0.1s; }
+		.section:nth-child(3) { animation-delay: 0.2s; }
+		.section:nth-child(4) { animation-delay: 0.3s; }
+
+		.section-label {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.7rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--text-tertiary);
+			margin-bottom: 1rem;
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.section-label::before {
+			content: '';
+			width: 8px;
+			height: 8px;
+			border-radius: 50%;
+			background: var(--accent);
+			box-shadow: 0 0 12px var(--accent-glow);
+		}
+
+		/* Project card */
+		.project-card {
+			background: var(--bg-card);
+			border: 1px solid var(--border);
+			border-radius: 16px;
+			padding: 1.75rem;
+			position: relative;
+			overflow: hidden;
+			transition: all 0.3s ease;
+		}
+
+		.project-card::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			height: 1px;
+			background: linear-gradient(90deg, transparent, var(--accent), transparent);
+			opacity: 0;
+			transition: opacity 0.3s ease;
+		}
+
+		.project-card:hover {
+			border-color: var(--border);
+			transform: translateY(-2px);
+			box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.5);
+		}
+
+		.project-card:hover::before {
+			opacity: 1;
+		}
+
+		.project-name {
+			font-size: 1.5rem;
+			font-weight: 600;
+			letter-spacing: -0.02em;
+			margin-bottom: 0.25rem;
+		}
+
+		.project-name a {
+			color: var(--text-primary);
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		.project-name a:hover {
+			color: var(--accent);
+		}
+
+		.project-role {
+			font-size: 0.9rem;
+			color: var(--text-tertiary);
+			margin-bottom: 1rem;
+		}
+
+		.project-role a {
+			color: var(--text-secondary);
+			text-decoration: none;
+			border-bottom: 1px solid var(--border);
+			transition: all 0.2s ease;
+		}
+
+		.project-role a:hover {
+			color: var(--accent);
+			border-color: var(--accent);
+		}
+
+		.project-desc {
+			font-size: 0.95rem;
+			color: var(--text-secondary);
+			line-height: 1.7;
+			margin-bottom: 1.25rem;
+			word-wrap: break-word;
+			overflow-wrap: break-word;
+		}
+
+		.project-stats {
+			display: flex;
+			gap: 0.5rem;
+			flex-wrap: wrap;
+			margin-bottom: 1.25rem;
+			justify-content: center;
+		}
+
+		.stat {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.75rem;
+			padding: 0.4rem 0.75rem;
+			background: var(--bg-tertiary);
+			border: 1px solid var(--border-subtle);
+			border-radius: 6px;
+			color: var(--text-secondary);
+			white-space: nowrap;
+		}
+
+		.project-links {
+			display: flex;
+			gap: 0.75rem;
+		}
+
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			gap: 0.5rem;
+			padding: 0.6rem 1.25rem;
+			font-family: 'DM Sans', sans-serif;
+			font-size: 0.85rem;
+			font-weight: 500;
+			border-radius: 8px;
+			text-decoration: none;
+			transition: all 0.25s ease;
+		}
+
+		.btn-primary {
+			background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+			color: white;
+		}
+
+		.btn-primary:hover {
+			transform: translateY(-1px);
+			box-shadow: 0 8px 20px -8px var(--accent-glow);
+		}
+
+		.btn-secondary {
+			background: var(--bg-tertiary);
+			border: 1px solid var(--border);
+			color: var(--text-secondary);
+		}
+
+		.btn-secondary:hover {
+			border-color: var(--accent);
+			color: var(--accent);
+		}
+
+		/* Timeline */
+		.timeline {
+			list-style: none;
+		}
+
+		.timeline li {
+			display: flex;
+			gap: 1rem;
+			padding: 0.75rem 0;
+			border-bottom: 1px solid var(--border-subtle);
+			transition: all 0.2s ease;
+		}
+
+		.timeline li:last-child {
+			border-bottom: none;
+		}
+
+		.timeline li:hover {
+			padding-left: 0.5rem;
+		}
+
+		.timeline .year {
+			font-family: 'JetBrains Mono', monospace;
+			font-size: 0.8rem;
+			color: var(--text-tertiary);
+			flex-shrink: 0;
+			width: 3.5rem;
+		}
+
+		.timeline .role {
+			font-size: 0.9rem;
+			color: var(--text-secondary);
+		}
+
+		.timeline .role strong {
+			color: var(--text-primary);
+			font-weight: 500;
+		}
+
+		/* Writing list */
+		.writing-list {
+			list-style: none;
+		}
+
+		.writing-list li {
+			padding: 0.75rem 0;
+			border-bottom: 1px solid var(--border-subtle);
+			transition: all 0.2s ease;
+		}
+
+		.writing-list li:last-child {
+			border-bottom: none;
+		}
+
+		.writing-list li:hover {
+			padding-left: 0.5rem;
+		}
+
+		.writing-list a {
+			font-size: 0.9rem;
+			font-weight: 500;
+			color: var(--text-primary);
+			text-decoration: none;
+			transition: color 0.2s ease;
+		}
+
+		.writing-list a:hover {
+			color: var(--accent);
+		}
+
+		.writing-list .pub {
+			font-size: 0.8rem;
+			color: var(--text-tertiary);
+			margin-left: 0.5rem;
+		}
+
+		.writing-list .pub::before {
+			content: '·';
+			margin-right: 0.5rem;
+		}
+
+		/* Responsive - Tablet */
+		@media (max-width: 680px) {
+			.container {
+				padding: 3rem 1.25rem 2rem;
+			}
+
+			.header {
+				margin-bottom: 2.5rem;
+			}
+
+			.name {
+				font-size: 1.75rem;
+			}
+
+			.tagline {
+				font-size: 0.95rem;
+			}
+
+			.project-card {
+				padding: 1.5rem;
+			}
+
+			.project-name {
+				font-size: 1.35rem;
+			}
+
+			.project-desc {
+				font-size: 0.9rem;
+			}
+		}
+
+		/* Responsive - Mobile */
+		@media (max-width: 480px) {
+			html {
+				font-size: 15px;
+			}
+
+			.container {
+				padding: 2rem 1rem 1.5rem;
+			}
+
+			.header {
+				margin-bottom: 2rem;
+			}
+
+			.avatar {
+				width: 100px;
+				height: 100px;
+				margin-bottom: 1.25rem;
+			}
+
+			.name {
+				font-size: 1.5rem;
+				margin-bottom: 0.35rem;
+			}
+
+			.tagline {
+				font-size: 0.9rem;
+			}
+
+			.social {
+				margin-top: 1rem;
+				gap: 0.5rem;
+			}
+
+			.social a {
+				width: 38px;
+				height: 38px;
+				font-size: 1rem;
+			}
+
+			.section {
+				margin-bottom: 2rem;
+			}
+
+			.section-label {
+				font-size: 0.65rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.section-label::before {
+				width: 6px;
+				height: 6px;
+			}
+
+			.project-card {
+				padding: 1.25rem;
+				border-radius: 12px;
+			}
+
+			.project-name {
+				font-size: 1.2rem;
+			}
+
+			.project-role {
+				font-size: 0.8rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.project-desc {
+				font-size: 0.85rem;
+				line-height: 1.6;
+				margin-bottom: 1rem;
+			}
+
+			.project-stats {
+				gap: 0.35rem;
+				margin-bottom: 1rem;
+				justify-content: flex-start;
+			}
+
+			.stat {
+				font-size: 0.65rem;
+				padding: 0.3rem 0.5rem;
+				border-radius: 4px;
+			}
+
+			.project-links {
+				flex-direction: column;
+				gap: 0.5rem;
+			}
+
+			.btn {
+				justify-content: center;
+				padding: 0.7rem 1rem;
+				font-size: 0.8rem;
+				border-radius: 6px;
+			}
+
+			.timeline li {
+				flex-direction: column;
+				gap: 0.2rem;
+				padding: 0.6rem 0;
+			}
+
+			.timeline li:hover {
+				padding-left: 0;
+			}
+
+			.timeline .year {
+				width: auto;
+				font-size: 0.7rem;
+			}
+
+			.timeline .role {
+				font-size: 0.85rem;
+			}
+
+			.writing-list li {
+				padding: 0.6rem 0;
+			}
+
+			.writing-list li:hover {
+				padding-left: 0;
+			}
+
+			.writing-list a {
+				font-size: 0.85rem;
+				display: block;
+				line-height: 1.4;
+			}
+
+			.writing-list .pub {
+				display: block;
+				margin-left: 0;
+				margin-top: 0.2rem;
+				font-size: 0.75rem;
+			}
+
+			.writing-list .pub::before {
+				display: none;
+			}
+
+			/* Hide grid on mobile for cleaner look */
+			.grid-pattern {
+				display: none;
+			}
+		}
+
+		/* Extra small screens */
+		@media (max-width: 360px) {
+			.container {
+				padding: 1.5rem 0.875rem 1.25rem;
+			}
+
+			.name {
+				font-size: 1.35rem;
+			}
+
+			.project-card {
+				padding: 1rem;
+			}
+
+			.project-name {
+				font-size: 1.1rem;
+			}
+
+			.stat {
+				font-size: 0.6rem;
+				padding: 0.25rem 0.4rem;
+			}
+		}
+
+		/* Reduced motion */
+		@media (prefers-reduced-motion: reduce) {
+			*, *::before, *::after {
+				animation-duration: 0.01ms !important;
+				transition-duration: 0.01ms !important;
+			}
+		}
+	</style>
 </head>
 
-<body class="is-loading">
+<body>
+	<div class="bg-pattern"></div>
+	<div class="grid-pattern"></div>
 
-	<!-- Wrapper -->
-	<div id="wrapper">
+	<div class="container">
+		<header class="header">
+			<div class="avatar">
+				<img src="./images/headshot.png" alt="Tim Sweeney" />
+			</div>
+			<h1 class="name">Tim Sweeney</h1>
+			<p class="tagline">Teaching computers to help people</p>
+			<nav class="social">
+				<a href="https://github.com/tssweeney" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+					<i class="fab fa-github"></i>
+				</a>
+				<a href="https://www.linkedin.com/in/tssweeney/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+					<i class="fab fa-linkedin-in"></i>
+				</a>
+			</nav>
+		</header>
 
-		<!-- Main -->
-		<section id="main">
-			<header>
-				<span class="avatar"><img src="./images/headshot.png" alt="" width="122px" height="122px" /></span>
-				<h1>Tim Sweeney</h1>
-				<p>Software Engineer @ <a href="https://www.wandb.com/" taret="_blank">Weights and Biases</a><br /><i>Machine
-						Learning Developer Tools</i></p>
-			</header>
-			<footer>
-				<ul class="icons">
-					<li><a href="https://www.linkedin.com/in/tssweeney/" target="_blank" class="fa-linkedin"></a></li>
-					<li><a href="https://twitter.com/timssweeney" target="_blank" class="fa-twitter"></a></li>
-					<li><a href="https://gitlab.com/tim.s.sweeney" target="_blank" class="fa-gitlab"></a></li>
-					<li><a href="https://github.com/tssweeney" target="_blank" class="fa-github"></a></li>
-				</ul>
-			</footer>
-			<span class="section">
-				<span>Education</span>
-				<ul class="items">
-					<li>2020: MS Computer Science / Machine Learning (GPA 4.0) - Georgia Tech
-					<li>2015: BS Information Systems / Computer Science (GPA 3.7) - Cal Poly SLO
-				</ul>
-			</span>
-			<span class="section">
-				<span>Long Form Content</span>
-				<ul class="items">
-					<li>[<a href="https://www.experian.com/blogs/news/datatalk/tim-sweeney/" target="_blank">Podcast</a>]
-						Navigating
-						Your Data Science Journey w/ Tim Sweeney</li>
-					<li>[<a href="https://blog.tensorflow.org/2019/03/ranking-tweets-with-tensorflow.html" target="_blank">Tech
-							Blog</a>] Ranking Tweets with TensorFlow @ Twitter</li>
-					<li>[<a href="https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html"
-							target="_blank">Tech
-							Blog</a>] Embeddings @Twitter</li>
-				</ul>
-			</span>
-			<span class="section">
-				<span>Top Projects and Research</span>
-				<ul class="items">
-					<li>[<a href="https://getbeatstream.com/" target="_blank">Live Site</a>] Music Sharing App: Beatstream</li>
-					<li>[<a href="https://drive.google.com/file/d/19mkYyFRffXsexkpjkN2wy1YGC2Id5Cj4/view"
-							target="_blank">Paper</a>] CV: Localization and Classification of Real-World Numeric Digits
-					</li>
-					<li>[<a href="https://drive.google.com/file/d/1Q2NDjqXCbR25LcPhKxdmHp29rYDtZOvC/view"
-							target="_blank">Paper</a>] Solve OpenAI’s LunarLander-v2 Gym Environment using a
-						Deep Q-Networks</li>
-					<li>[<a href="https://drive.google.com/file/d/1Sc4YG4FqQ8tDWIB7Bwrn1ATp4DvifNjT/view"
-							target="_blank">Paper</a>] Compare and contrast Correlated-Q Learning to traditional Q-Learning approaches
-					</li>
-					<li>[<a href="https://drive.google.com/file/d/1iErJpGBNEP9F96bAB43eDi1_lMD5uCxt/view"
-							target="_blank">Paper</a>] Reproduce Sutton’s Learning to Predict by the Methods of Temporal Differences
-						(1988)</li>
-					<li>[<a href="https://drive.google.com/file/d/11RkOzhoP4w-HovTJolaW2NOgkUNHmglW/view"
-							target="_blank">Paper</a>] Q-Learning Market Strategy Learner</li>
-				</ul>
-				<span class="normal">
-					Looking for more? Please see my comprehensive <a
-						href="https://drive.google.com/file/d/1T1vpeHz23el7P_cBvFt21rrJ_Lh3K-qf/view?usp=sharing" _blank">
-						Academic Portfolio</a></span>
-			</span>
-			<span class="section">
-				<span></span>
-			</span>
-
+		<section class="section">
+			<h2 class="section-label">Currently Building</h2>
+			<div class="project-card">
+				<h3 class="project-name">
+					<a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer">Weave</a>
+				</h3>
+				<p class="project-role">Lead Maintainer @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights & Biases</a></p>
+				<p class="project-desc">Open-source observability and evaluation platform for LLM applications. Trace, evaluate, and improve your AI apps.</p>
+				<div class="project-stats">
+					<span class="stat">1,000+ Stars</span>
+					<span class="stat">790+ Dependents</span>
+					<span class="stat">100+ Contributors</span>
+				</div>
+				<div class="project-links">
+					<a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+						<i class="fab fa-github"></i> GitHub
+					</a>
+					<a href="https://docs.wandb.ai/weave/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+						<i class="fas fa-book"></i> Docs
+					</a>
+				</div>
+			</div>
 		</section>
 
-		<!-- Footer -->
-		<footer id="footer">
-		</footer>
+		<section class="section">
+			<h2 class="section-label">Background</h2>
+			<ul class="timeline">
+				<li>
+					<span class="year">2020+</span>
+					<span class="role"><strong>Weights & Biases</strong> · Principal Software Engineer</span>
+				</li>
+				<li>
+					<span class="year">2018</span>
+					<span class="role"><strong>Twitter</strong> · ML Platform Product Manager</span>
+				</li>
+				<li>
+					<span class="year">2020</span>
+					<span class="role"><strong>Georgia Tech</strong> · MS Computer Science, Machine Learning</span>
+				</li>
+			</ul>
+		</section>
 
+		<section class="section">
+			<h2 class="section-label">Selected Writing</h2>
+			<ul class="writing-list">
+				<li>
+					<a href="https://blog.tensorflow.org/2019/03/ranking-tweets-with-tensorflow.html" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a>
+					<span class="pub">TensorFlow Blog</span>
+				</li>
+				<li>
+					<a href="https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html" target="_blank" rel="noopener noreferrer">Embeddings @Twitter</a>
+					<span class="pub">Twitter Engineering</span>
+				</li>
+			</ul>
+		</section>
 	</div>
 
 	<script>
-		if ('addEventListener' in window) {
-			window.addEventListener('load', function () { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
-		}
+		console.log('%c👋 Hey there, fellow developer!', 'font-size: 16px; font-weight: bold;');
+		console.log('%cIf you\'re building with LLMs, check out Weave → https://github.com/wandb/weave', 'font-size: 12px;');
 	</script>
-
 </body>
 
 </html>
