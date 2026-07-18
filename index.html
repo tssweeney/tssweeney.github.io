@@ -22,7 +22,7 @@
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 	<link rel="shortcut icon" type="image/x-icon" href="./images/favicon.ico">
 	<link rel="canonical" href="https://timssweeney.com" />
@@ -39,7 +39,7 @@
 			--accent: #1a43d6;
 			--accent-soft: rgba(26, 67, 214, 0.08);
 			--shadow: 0 1px 0 rgba(20, 20, 19, 0.04);
-			--font-sans: "Bricolage Grotesque", Georgia, sans-serif;
+			--font-sans: "IBM Plex Sans", "Helvetica Neue", Helvetica, sans-serif;
 			--font-mono: "IBM Plex Mono", ui-monospace, monospace;
 			--measure: 42rem;
 			--radius: 10px;
@@ -118,10 +118,10 @@
 		}
 
 		.brand {
-			font-size: clamp(2.15rem, 5vw, 2.75rem);
-			font-weight: 700;
-			letter-spacing: -0.045em;
-			line-height: 1.05;
+			font-size: clamp(2.05rem, 4.5vw, 2.55rem);
+			font-weight: 600;
+			letter-spacing: -0.035em;
+			line-height: 1.08;
 			color: var(--ink);
 		}
 
@@ -342,6 +342,27 @@
 			color: var(--line);
 		}
 
+		.project-media {
+			position: relative;
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			margin: 0 0 1.1rem;
+			overflow: hidden;
+			border-radius: 8px;
+			background: #111318;
+			border: 1px solid var(--line);
+			box-shadow: var(--shadow);
+		}
+
+		.project-media iframe {
+			position: absolute;
+			inset: 0;
+			width: 100%;
+			height: 100%;
+			border: 0;
+			display: block;
+		}
+
 		.project-links {
 			display: flex;
 			flex-wrap: wrap;
@@ -391,7 +412,7 @@
 
 		.timeline li {
 			display: grid;
-			grid-template-columns: 4.25rem auto 1fr;
+			grid-template-columns: 5rem auto 1fr;
 			gap: 0.85rem;
 			align-items: center;
 			padding: 0.95rem 0;
@@ -439,8 +460,16 @@
 			object-fit: contain;
 		}
 
-		.timeline li.dual {
-			grid-template-columns: 4.25rem auto 1fr;
+		.timeline .mark.wordmark {
+			width: auto;
+			min-width: 2.35rem;
+			padding: 0 0.45rem;
+		}
+
+		.timeline .mark.wordmark img {
+			width: auto;
+			height: 12px;
+			max-width: 72px;
 		}
 
 		.timeline .role {
@@ -563,9 +592,8 @@
 				gap: 0.65rem;
 			}
 
-			.timeline li,
-			.timeline li.dual {
-				grid-template-columns: 3.5rem auto 1fr;
+			.timeline li {
+				grid-template-columns: 4.25rem auto 1fr;
 				gap: 0.65rem;
 			}
 
@@ -635,9 +663,18 @@
 					</div>
 					<p class="project-role">Building @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights &amp; Biases</a> / <a href="https://www.coreweave.com/" target="_blank" rel="noopener noreferrer">CoreWeave</a></p>
 					<p class="project-desc">An AI research agent embedded in W&amp;B. Talk to your experiments, runs, artifacts, and visualizations in natural language — with the north star of an always-on agent that proposes hypotheses, launches experiments on cloud GPUs, and iterates on your behalf.</p>
+					<div class="project-media">
+						<iframe
+							src="https://www.youtube-nocookie.com/embed/4sX_He5c4sI?start=16786"
+							title="CoreWeave ARIA demo"
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
 					<div class="project-links">
 						<a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn more</a>
-						<a href="https://www.youtube.com/watch?v=4sX_He5c4sI&amp;t=16786" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Watch demo</a>
 					</div>
 				</article>
 
@@ -701,6 +738,24 @@
 						</span>
 					</span>
 					<span class="role"><strong>Twitter</strong> · ML Platform Product Manager</span>
+				</li>
+				<li>
+					<span class="year">2015–18</span>
+					<span class="marks">
+						<span class="mark wordmark" title="Workday">
+							<img src="./images/logos/workday.svg" alt="" />
+						</span>
+					</span>
+					<span class="role"><strong>Workday</strong> · Product Manager, Search &amp; ML</span>
+				</li>
+				<li>
+					<span class="year">2011–15</span>
+					<span class="marks">
+						<span class="mark" title="Cal Poly">
+							<img src="./images/logos/cal-poly-mark.svg" alt="" />
+						</span>
+					</span>
+					<span class="role"><strong>Cal Poly</strong> · BS Business Administration, Minor in Computer Science</span>
 				</li>
 			</ul>
 		</section>
