@@ -93,52 +93,56 @@
 			z-index: 1;
 			width: min(100% - 2.5rem, var(--measure));
 			margin: 0 auto;
-			padding: 4.5rem 0 4rem;
+			padding: 3.5rem 0 3.5rem;
 		}
 
 		/* Hero — one composition, brand first */
 		.hero {
-			display: grid;
-			grid-template-columns: auto 1fr;
-			gap: 1.35rem 1.5rem;
+			display: flex;
 			align-items: center;
-			padding-bottom: 2.75rem;
+			gap: 1.25rem;
+			padding-bottom: 2.25rem;
 			border-bottom: 1px solid var(--line);
 			animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
 		}
 
 		.avatar {
-			width: 88px;
-			height: 88px;
+			width: 80px;
+			height: 80px;
 			border-radius: 50%;
 			object-fit: cover;
-			grid-row: 1 / span 2;
+			flex-shrink: 0;
 			box-shadow: var(--shadow);
 			outline: 1px solid var(--line);
 		}
 
+		.identity {
+			display: flex;
+			flex-direction: column;
+			gap: 0.3rem;
+			min-width: 0;
+		}
+
 		.brand {
-			font-size: clamp(2.05rem, 4.5vw, 2.55rem);
+			font-size: clamp(1.95rem, 4vw, 2.4rem);
 			font-weight: 600;
 			letter-spacing: -0.035em;
-			line-height: 1.08;
+			line-height: 1.1;
 			color: var(--ink);
 		}
 
 		.tagline {
-			grid-column: 2;
-			font-size: 1.05rem;
+			font-size: 1rem;
 			color: var(--muted);
 			font-weight: 400;
-			max-width: 22ch;
+			line-height: 1.35;
 		}
 
 		.social {
-			grid-column: 1 / -1;
 			display: flex;
 			flex-wrap: wrap;
-			gap: 0.35rem 1.25rem;
-			margin-top: 0.35rem;
+			gap: 0.15rem 1.1rem;
+			margin-top: 0.25rem;
 		}
 
 		.social a {
@@ -342,27 +346,6 @@
 			color: var(--line);
 		}
 
-		.project-media {
-			position: relative;
-			width: 100%;
-			aspect-ratio: 16 / 9;
-			margin: 0 0 1.1rem;
-			overflow: hidden;
-			border-radius: 8px;
-			background: #111318;
-			border: 1px solid var(--line);
-			box-shadow: var(--shadow);
-		}
-
-		.project-media iframe {
-			position: absolute;
-			inset: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-			display: block;
-		}
-
 		.project-links {
 			display: flex;
 			flex-wrap: wrap;
@@ -564,22 +547,29 @@
 			}
 
 			.hero {
-				grid-template-columns: auto 1fr;
-				gap: 1rem 1.1rem;
-				padding-bottom: 2rem;
+				gap: 1rem;
+				padding-bottom: 1.75rem;
 			}
 
 			.avatar {
-				width: 72px;
-				height: 72px;
+				width: 68px;
+				height: 68px;
 			}
 
 			.brand {
-				font-size: 1.85rem;
+				font-size: 1.75rem;
 			}
 
 			.tagline {
-				font-size: 0.98rem;
+				font-size: 0.95rem;
+			}
+
+			.identity {
+				gap: 0.25rem;
+			}
+
+			.social {
+				margin-top: 0.15rem;
 			}
 
 			.section {
@@ -631,13 +621,15 @@
 
 	<main class="page">
 		<header class="hero">
-			<img class="avatar" src="./images/headshot.png" alt="Tim Sweeney" width="88" height="88" />
-			<h1 class="brand">Tim Sweeney</h1>
-			<p class="tagline">Teaching computers to help people</p>
-			<nav class="social" aria-label="Social links">
-				<a href="https://github.com/tssweeney" target="_blank" rel="noopener noreferrer">GitHub</a>
-				<a href="https://www.linkedin.com/in/tssweeney/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-			</nav>
+			<img class="avatar" src="./images/headshot.png" alt="Tim Sweeney" width="80" height="80" />
+			<div class="identity">
+				<h1 class="brand">Tim Sweeney</h1>
+				<p class="tagline">Teaching computers to help people</p>
+				<nav class="social" aria-label="Social links">
+					<a href="https://github.com/tssweeney" target="_blank" rel="noopener noreferrer">GitHub</a>
+					<a href="https://www.linkedin.com/in/tssweeney/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+				</nav>
+			</div>
 		</header>
 
 		<section class="section" aria-labelledby="building-label">
@@ -663,18 +655,9 @@
 					</div>
 					<p class="project-role">Building @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights &amp; Biases</a> / <a href="https://www.coreweave.com/" target="_blank" rel="noopener noreferrer">CoreWeave</a></p>
 					<p class="project-desc">An AI research agent embedded in W&amp;B. Talk to your experiments, runs, artifacts, and visualizations in natural language — with the north star of an always-on agent that proposes hypotheses, launches experiments on cloud GPUs, and iterates on your behalf.</p>
-					<div class="project-media">
-						<iframe
-							src="https://www.youtube-nocookie.com/embed/4sX_He5c4sI?start=16786"
-							title="CoreWeave ARIA demo"
-							loading="lazy"
-							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-							referrerpolicy="strict-origin-when-cross-origin"
-							allowfullscreen
-						></iframe>
-					</div>
 					<div class="project-links">
 						<a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Learn more</a>
+						<a href="https://www.youtube.com/watch?v=4sX_He5c4sI&amp;t=16786" target="_blank" rel="noopener noreferrer" class="btn btn-ghost">Demo</a>
 					</div>
 				</article>
 
