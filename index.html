@@ -5,19 +5,19 @@
 	<title>Tim Sweeney | Building Developer Tools for AI</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<meta name="description" content="Tim Sweeney is a Principal Software Engineer at Weights & Biases and lead maintainer of Weave, an open-source observability platform for LLM applications." />
+	<meta name="description" content="Tim Sweeney is a Principal Software Engineer at Weights & Biases, building CoreWeave ARIA and leading development of Weave, an open-source observability platform for AI agents." />
 
 	<!-- Open Graph / Social Media -->
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content="Tim Sweeney | Building Developer Tools for AI" />
-	<meta property="og:description" content="Lead maintainer of Weave at Weights & Biases. Building observability and evaluation tools for LLM applications." />
+	<meta property="og:description" content="Building CoreWeave ARIA and Weave at Weights & Biases. AI research agents and observability tools for ML teams." />
 	<meta property="og:url" content="https://timssweeney.com" />
 	<meta property="og:image" content="https://timssweeney.com/images/headshot.png" />
 
 	<!-- Twitter/X Card -->
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content="Tim Sweeney | Building Developer Tools for AI" />
-	<meta name="twitter:description" content="Lead maintainer of Weave at Weights & Biases. Building observability and evaluation tools for LLM applications." />
+	<meta name="twitter:description" content="Building CoreWeave ARIA and Weave at Weights & Biases. AI research agents and observability tools for ML teams." />
 	<meta name="twitter:image" content="https://timssweeney.com/images/headshot.png" />
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -253,6 +253,12 @@
 		}
 
 		/* Project card */
+		.project-cards {
+			display: flex;
+			flex-direction: column;
+			gap: 1.25rem;
+		}
+
 		.project-card {
 			background: var(--bg-card);
 			border: 1px solid var(--border);
@@ -704,24 +710,41 @@
 
 		<section class="section">
 			<h2 class="section-label">Currently Building</h2>
-			<div class="project-card">
-				<h3 class="project-name">
-					<a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer">Weave</a>
-				</h3>
-				<p class="project-role">Lead Maintainer @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights & Biases</a></p>
-				<p class="project-desc">Open-source observability and evaluation platform for LLM applications. Trace, evaluate, and improve your AI apps.</p>
-				<div class="project-stats">
-					<span class="stat">1,000+ Stars</span>
-					<span class="stat">790+ Dependents</span>
-					<span class="stat">100+ Contributors</span>
+			<div class="project-cards">
+				<div class="project-card">
+					<h3 class="project-name">
+						<a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer">CoreWeave ARIA</a>
+					</h3>
+					<p class="project-role">Building @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights &amp; Biases</a></p>
+					<p class="project-desc">An AI research agent embedded in W&amp;B. Talk to your experiments, runs, artifacts, and visualizations in natural language — with the north star of an always-on agent that proposes hypotheses, launches experiments on cloud GPUs, and iterates on your behalf.</p>
+					<div class="project-links">
+						<a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							<i class="fas fa-arrow-up-right-from-square"></i> Learn More
+						</a>
+						<a href="https://www.youtube.com/watch?v=4sX_He5c4sI&t=16786" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+							<i class="fab fa-youtube"></i> Demo
+						</a>
+					</div>
 				</div>
-				<div class="project-links">
-					<a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-						<i class="fab fa-github"></i> GitHub
-					</a>
-					<a href="https://docs.wandb.ai/weave/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
-						<i class="fas fa-book"></i> Docs
-					</a>
+				<div class="project-card">
+					<h3 class="project-name">
+						<a href="https://wandb.ai/site/weave/" target="_blank" rel="noopener noreferrer">Weave</a>
+					</h3>
+					<p class="project-role">Lead Maintainer @ <a href="https://wandb.ai/" target="_blank" rel="noopener noreferrer">Weights &amp; Biases</a></p>
+					<p class="project-desc">Open-source observability and evaluation for production agents. Trace, evaluate, and improve AI apps — with sessions, turns, and tools as first-class concepts.</p>
+					<div class="project-stats">
+						<span class="stat">1,000+ Stars</span>
+						<span class="stat">790+ Dependents</span>
+						<span class="stat">100+ Contributors</span>
+					</div>
+					<div class="project-links">
+						<a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+							<i class="fab fa-github"></i> GitHub
+						</a>
+						<a href="https://docs.wandb.ai/weave/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+							<i class="fas fa-book"></i> Docs
+						</a>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -731,7 +754,7 @@
 			<ul class="timeline">
 				<li>
 					<span class="year">2020+</span>
-					<span class="role"><strong>Weights & Biases</strong> · Principal Software Engineer</span>
+					<span class="role"><strong>CoreWeave / Weights &amp; Biases</strong> · Principal Software Engineer</span>
 				</li>
 				<li>
 					<span class="year">2018</span>
@@ -761,7 +784,7 @@
 
 	<script>
 		console.log('%c👋 Hey there, fellow developer!', 'font-size: 16px; font-weight: bold;');
-		console.log('%cIf you\'re building with LLMs, check out Weave → https://github.com/wandb/weave', 'font-size: 12px;');
+		console.log('%cBuilding with LLMs? Check out ARIA → https://wandb.ai/site/agent/ and Weave → https://github.com/wandb/weave', 'font-size: 12px;');
 	</script>
 </body>
 
