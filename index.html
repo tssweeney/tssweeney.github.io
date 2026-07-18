@@ -270,11 +270,11 @@
 			display: inline-flex;
 			align-items: center;
 			justify-content: center;
-			height: 28px;
-			padding: 0 0.45rem;
+			height: 34px;
+			padding: 0 0.55rem;
 			background: var(--bg-elevated);
 			border: 1px solid var(--line);
-			border-radius: 6px;
+			border-radius: 7px;
 			transition: border-color 0.2s ease, transform 0.2s ease;
 		}
 
@@ -285,20 +285,20 @@
 
 		.brand-mark img {
 			display: block;
-			height: 14px;
+			height: 16px;
 			width: auto;
-			max-width: 72px;
+			max-width: 80px;
 			object-fit: contain;
 		}
 
 		.brand-mark.square img {
-			height: 16px;
-			width: 16px;
+			height: 18px;
+			width: 18px;
 		}
 
 		.brand-mark.wide img {
-			height: 12px;
-			max-width: 92px;
+			height: 13px;
+			max-width: 100px;
 		}
 
 		.project-role {
@@ -391,7 +391,7 @@
 
 		.timeline li {
 			display: grid;
-			grid-template-columns: 4.25rem 2rem 1fr;
+			grid-template-columns: 4.25rem auto 1fr;
 			gap: 0.85rem;
 			align-items: center;
 			padding: 0.95rem 0;
@@ -414,27 +414,33 @@
 			color: var(--faint);
 		}
 
+		.timeline .marks {
+			display: flex;
+			align-items: center;
+			gap: 0.3rem;
+		}
+
 		.timeline .mark {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			width: 2rem;
-			height: 2rem;
+			width: 2.35rem;
+			height: 2.35rem;
 			background: var(--bg-elevated);
 			border: 1px solid var(--line);
-			border-radius: 6px;
+			border-radius: 7px;
+			flex-shrink: 0;
 		}
 
 		.timeline .mark img {
 			display: block;
-			width: 14px;
-			height: 14px;
+			width: 17px;
+			height: 17px;
 			object-fit: contain;
 		}
 
-		.timeline .mark.wide img {
-			width: 18px;
-			height: 12px;
+		.timeline li.dual {
+			grid-template-columns: 4.25rem auto 1fr;
 		}
 
 		.timeline .role {
@@ -557,9 +563,20 @@
 				gap: 0.65rem;
 			}
 
-			.timeline li {
-				grid-template-columns: 3.5rem 1.85rem 1fr;
+			.timeline li,
+			.timeline li.dual {
+				grid-template-columns: 3.5rem auto 1fr;
 				gap: 0.65rem;
+			}
+
+			.timeline .mark {
+				width: 2rem;
+				height: 2rem;
+			}
+
+			.timeline .mark img {
+				width: 15px;
+				height: 15px;
 			}
 
 			.timeline .role {
@@ -655,24 +672,33 @@
 				<h2 id="background-label" class="section-label">Background</h2>
 			</div>
 			<ul class="timeline">
-				<li>
+				<li class="dual">
 					<span class="year">2020+</span>
-					<span class="mark" title="CoreWeave / Weights &amp; Biases">
-						<img src="./images/logos/coreweave.svg" alt="" />
+					<span class="marks" aria-label="CoreWeave and Weights &amp; Biases">
+						<span class="mark" title="CoreWeave">
+							<img src="./images/logos/coreweave.svg" alt="" />
+						</span>
+						<span class="mark" title="Weights &amp; Biases">
+							<img src="./images/logos/weights-and-biases.svg" alt="" />
+						</span>
 					</span>
 					<span class="role"><strong>CoreWeave / Weights &amp; Biases</strong> · Principal Software Engineer</span>
 				</li>
 				<li>
 					<span class="year">2020</span>
-					<span class="mark" title="Georgia Tech">
-						<img src="./images/logos/georgia-tech-mark.svg" alt="" />
+					<span class="marks">
+						<span class="mark" title="Georgia Tech">
+							<img src="./images/logos/georgia-tech-mark.svg" alt="" />
+						</span>
 					</span>
 					<span class="role"><strong>Georgia Tech</strong> · MS Computer Science, Machine Learning</span>
 				</li>
 				<li>
 					<span class="year">2018</span>
-					<span class="mark" title="Twitter / X">
-						<img src="./images/logos/x.svg" alt="" />
+					<span class="marks">
+						<span class="mark" title="Twitter / X">
+							<img src="./images/logos/x.svg" alt="" />
+						</span>
 					</span>
 					<span class="role"><strong>Twitter</strong> · ML Platform Product Manager</span>
 				</li>
