@@ -207,14 +207,21 @@
 		.links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 		/* Talk */
-		.talk { display: flex; flex-direction: column; gap: 0.75rem; }
-		.talk .video { margin-bottom: 0.5rem; }
+		.talk {
+			display: grid;
+			grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+			gap: 1.5rem;
+			align-items: end;
+		}
+
+		.talk-body { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+		.talk .play { left: 0.75rem; bottom: 0.75rem; }
 
 		.talk h3 {
 			font-family: var(--display);
 			font-weight: 400;
-			font-size: clamp(1.6rem, 3vw, 2.1rem);
-			line-height: 1.1;
+			font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+			line-height: 1.15;
 			letter-spacing: -0.02em;
 			text-wrap: balance;
 		}
@@ -342,7 +349,7 @@
 			.span-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who dur" "lane lane"; gap: 0.6rem 1rem; }
 			.span-row.axis { grid-template-areas: "lane lane"; }
 			.span-row.axis > .meta { display: none; }
-			.play { left: 0.75rem; bottom: 0.75rem; }
+			.talk { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 		}
 
 		@media (prefers-reduced-motion: no-preference) {
@@ -383,11 +390,13 @@
 						<img src="https://i.ytimg.com/vi/hd7TOvmyAxU/hqdefault.jpg" alt="" onerror="this.remove()" />
 						<span class="play">Play talk</span>
 					</a>
-					<p class="meta">Talk · AI Engineer</p>
+					<div class="talk-body">
+						<p class="meta">Talk · AI Engineer</p>
 					<h3><a href="https://ai.engineer/talks/hd7TOvmyAxU-ai-research-agent-that-runs-your-experiments" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a></h3>
 					<div class="links">
 						<a href="https://ai.engineer/talks/hd7TOvmyAxU-ai-research-agent-that-runs-your-experiments" target="_blank" rel="noopener noreferrer">Talk page</a>
 						<a href="https://www.youtube.com/watch?v=hd7TOvmyAxU" target="_blank" rel="noopener noreferrer">YouTube</a>
+						</div>
 					</div>
 				</article>
 			</section>
