@@ -313,10 +313,21 @@
 		}
 
 		.ticks span:first-child { transform: none; }
+		.ticks .acq { color: var(--accent); }
 
 		.bar { position: absolute; top: 4px; height: 6px; border-radius: 3px; background: var(--ink); }
 		.bar.study { background: var(--paper); box-shadow: inset 0 0 0 1px var(--muted); }
 		.bar.live { background: var(--accent); }
+
+		/* Acquisition: a vertical tick where W&B hands off to CoreWeave */
+		.handoff {
+			position: absolute;
+			top: -4px;
+			bottom: -4px;
+			width: 2px;
+			transform: translateX(-50%);
+			background: var(--accent);
+		}
 
 		.cap {
 			position: absolute;
@@ -438,15 +449,20 @@
 						<div class="ticks">
 							<span style="left:0%">2011</span>
 							<span style="left:25%">2015</span>
-							<span style="left:50%">2019</span>
-							<span style="left:75%">2023</span>
+							<span style="left:56.25%">2020</span>
+							<span class="acq" style="left:87.5%">2025</span>
 						</div>
 						<span class="meta dur">Years</span>
 					</div>
 					<div class="span-row live" role="listitem">
-						<div class="who"><b>CoreWeave / Weights &amp; Biases</b><span>Principal Software Engineer</span></div>
-						<div class="lane"><div class="bar live" style="left:56.25%;width:42.2%"></div><div class="cap" style="left:98.45%"></div></div>
-						<span class="dur">2020 —</span>
+						<div class="who"><b>CoreWeave</b><span>Principal Software Engineer</span></div>
+						<div class="lane"><div class="bar live" style="left:87.5%;width:11.2%"></div><div class="cap" style="left:98.7%"></div></div>
+						<span class="dur">2025 —</span>
+					</div>
+					<div class="span-row" role="listitem">
+						<div class="who"><b>Weights &amp; Biases</b><span>Principal Software Engineer · acquired by CoreWeave</span></div>
+						<div class="lane"><div class="bar" style="left:56.25%;width:31.25%"></div><div class="handoff" style="left:87.5%"></div></div>
+						<span class="dur">2020 — 25</span>
 					</div>
 					<div class="span-row" role="listitem">
 						<div class="who"><b>Georgia Tech</b><span>M.S. Computer Science, Machine Learning</span></div>
