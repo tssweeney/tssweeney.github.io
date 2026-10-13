@@ -286,7 +286,7 @@
 
 		.span-row {
 			display: grid;
-			grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 4.75rem;
+			grid-template-columns: minmax(0, 14rem) minmax(0, 1fr) 4.75rem;
 			grid-template-areas: "who lane dur";
 			gap: 1.25rem;
 			align-items: center;
@@ -295,9 +295,25 @@
 		}
 
 		.span-row.axis { padding-block: 0 0.5rem; border-bottom: 0; }
-		.who { grid-area: who; min-width: 0; }
-		.who b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.2rem; line-height: 1.25; }
-		.who span { display: block; font-size: 0.82rem; color: var(--muted); line-height: 1.35; }
+		.who { grid-area: who; min-width: 0; display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: 0.75rem; align-items: start; }
+		.who-text { min-width: 0; }
+		.who-text b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.2rem; line-height: 1.25; }
+		.who-text span { display: block; font-size: 0.82rem; color: var(--muted); line-height: 1.35; }
+
+		/* Brand marks sit on a fixed light tile so dark and colored logos read in both themes */
+		.logo {
+			width: 2rem;
+			height: 2rem;
+			margin-top: 0.1rem;
+			display: grid;
+			place-items: center;
+			background: #fbfbf9;
+			border-radius: 6px;
+			box-shadow: inset 0 0 0 1px var(--rule);
+		}
+
+		.logo img { display: block; width: 18px; height: 18px; object-fit: contain; }
+		.logo.wide img { width: 24px; }
 		.lane { grid-area: lane; position: relative; height: 14px; }
 		.lane::before { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: var(--rule); }
 		.dur { grid-area: dur; font-family: var(--mono); font-size: 0.75rem; color: var(--faint); text-align: right; font-variant-numeric: tabular-nums; }
@@ -462,32 +478,32 @@
 						<span class="meta dur">Years</span>
 					</div>
 					<div class="span-row live" role="listitem">
-						<div class="who"><b>CoreWeave</b><span>Principal Software Engineer</span></div>
+						<div class="who"><span class="logo"><img src="./images/logos/coreweave.svg" alt="" /></span><div class="who-text"><b>CoreWeave</b><span>Principal Software Engineer</span></div></div>
 						<div class="lane"><div class="bar live" style="left:87.5%;width:11.2%"></div><div class="cap" style="left:98.7%"></div></div>
 						<span class="dur">2025 —</span>
 					</div>
 					<div class="span-row" role="listitem">
-						<div class="who"><b>Weights &amp; Biases</b><span>Principal Software Engineer · acquired by CoreWeave</span></div>
+						<div class="who"><span class="logo"><img src="./images/logos/weights-and-biases.svg" alt="" /></span><div class="who-text"><b>Weights &amp; Biases</b><span>Principal Software Engineer · acquired by CoreWeave</span></div></div>
 						<div class="lane"><div class="bar" style="left:56.25%;width:31.25%"></div><div class="handoff" style="left:87.5%"></div></div>
 						<span class="dur">2020 — 25</span>
 					</div>
 					<div class="span-row" role="listitem">
-						<div class="who"><b>Georgia Tech</b><span>M.S. Computer Science, Machine Learning</span></div>
+						<div class="who"><span class="logo"><img src="./images/logos/georgia-tech-mark.svg" alt="" /></span><div class="who-text"><b>Georgia Tech</b><span>M.S. Computer Science, Machine Learning</span></div></div>
 						<div class="lane"><div class="bar study" style="left:43.75%;width:12.5%"></div></div>
 						<span class="dur">2018 — 20</span>
 					</div>
 					<div class="span-row" role="listitem">
-						<div class="who"><b>Twitter</b><span>Product Manager, ML Platform</span></div>
+						<div class="who"><span class="logo"><img src="./images/logos/x.svg" alt="" /></span><div class="who-text"><b>Twitter</b><span>Product Manager, ML Platform</span></div></div>
 						<div class="lane"><div class="bar" style="left:43.75%;width:12.5%"></div></div>
 						<span class="dur">2018</span>
 					</div>
 					<div class="span-row" role="listitem">
-						<div class="who"><b>Workday</b><span>Product Manager, Search &amp; ML</span></div>
+						<div class="who"><span class="logo wide"><img src="./images/logos/workday.svg" alt="" /></span><div class="who-text"><b>Workday</b><span>Product Manager, Search &amp; ML</span></div></div>
 						<div class="lane"><div class="bar" style="left:25%;width:18.75%"></div></div>
 						<span class="dur">2015 — 18</span>
 					</div>
 					<div class="span-row" role="listitem">
-						<div class="who"><b>Cal Poly</b><span>B.S. Business Administration, minor in Computer Science</span></div>
+						<div class="who"><span class="logo"><img src="./images/logos/cal-poly-mark.svg" alt="" /></span><div class="who-text"><b>Cal Poly</b><span>B.S. Business Administration, minor in Computer Science</span></div></div>
 						<div class="lane"><div class="bar study" style="left:0%;width:25%"></div></div>
 						<span class="dur">2011 — 15</span>
 					</div>
