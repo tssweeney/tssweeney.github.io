@@ -359,6 +359,25 @@
 		}
 
 
+		/* Built with AI: a quiet list, like Writing, with the tool that built each one */
+		.builds { list-style: none; display: flex; flex-direction: column; }
+
+		.builds li {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) auto;
+			gap: 0.25rem 1.5rem;
+			align-items: baseline;
+			padding-block: 1.1rem;
+			border-bottom: 1px solid var(--rule);
+		}
+
+		.builds li:first-child { padding-top: 0.25rem; }
+		.builds a { font-family: var(--display); font-size: 1.3rem; line-height: 1.25; text-decoration: none; }
+		.builds a::after { content: " \2197"; font-size: 0.75em; color: var(--faint); transition: color 0.2s; }
+		.builds a:hover, .builds a:hover::after { color: var(--accent); }
+		.builds p { grid-column: 1; font-size: 0.92rem; color: var(--muted); max-width: 52ch; }
+		.builds .meta { grid-column: 2; grid-row: 1; white-space: nowrap; }
+
 		/* Writing */
 		.essays { list-style: none; display: flex; flex-direction: column; }
 		.essays li { padding-block: 1rem; border-bottom: 1px solid var(--rule); display: flex; flex-direction: column; gap: 0.15rem; }
@@ -383,6 +402,8 @@
 			.span-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "who dur" "lane lane"; gap: 0.6rem 1rem; }
 			.span-row.axis { grid-template-areas: "lane lane"; }
 			.span-row.axis > .meta { display: none; }
+			.builds li { grid-template-columns: minmax(0, 1fr); }
+			.builds .meta { grid-column: 1; grid-row: auto; }
 			.talk { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
 		}
 
@@ -391,6 +412,7 @@
 			.chapter:nth-child(2) { animation-delay: 0.08s; }
 			.chapter:nth-child(3) { animation-delay: 0.16s; }
 			.chapter:nth-child(4) { animation-delay: 0.24s; }
+			.chapter:nth-child(5) { animation-delay: 0.32s; }
 			.bar { animation: draw 1.1s 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 			.cap { animation: pulse 2.4s 1.4s ease-out infinite; }
 
@@ -462,6 +484,22 @@
 						</div>
 					</article>
 				</div>
+			</section>
+
+			<section class="chapter" aria-labelledby="built">
+				<div class="chapter-head"><h2 id="built">Built with AI</h2><span>Side projects</span></div>
+				<ul class="builds">
+					<li>
+						<a href="https://claude.ai/artifact/YGUvN6W299YhRhViD39AKf" target="_blank" rel="noopener noreferrer">Federal Budgeting Tool</a>
+						<span class="meta">Claude</span>
+						<p>Design tax brackets and a federal spending budget, starting from Milton Friedman's negative income tax.</p>
+					</li>
+					<li>
+						<a href="https://morley-field-squirrels.tssweeney.chatgpt.site/" target="_blank" rel="noopener noreferrer">Morley Field Squirrels</a>
+						<span class="meta">ChatGPT</span>
+						<p>Team page for the Morley Field Squirrels disc golf team.</p>
+					</li>
+				</ul>
 			</section>
 
 			<section class="chapter" aria-labelledby="career">
