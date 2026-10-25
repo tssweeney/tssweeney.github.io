@@ -170,8 +170,9 @@
 		.what h3 a { text-decoration: none; }
 		.what h3 a:hover { color: var(--accent); }
 		.note a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--rule); }
-		/* Publications: title on the left, venue (and printed short link) on the right */
-		.pubs .what h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 1rem; }
+		/* Publications: title, venue and (in print) short link as aligned columns */
+		.pubs .what h3 { display: grid; grid-template-columns: minmax(0, 1fr) 13rem; gap: 0 1.5rem; align-items: baseline; }
+		.pubs .short { display: none; font-family: var(--body); font-style: italic; font-weight: 400; font-size: 0.85rem; color: var(--muted); }
 		.what h3 small { font-style: italic; font-size: 0.85rem; color: var(--muted); font-weight: 400; }
 		.role { font-style: italic; }
 		.note { color: var(--ink); }
@@ -186,6 +187,7 @@
 		@media (max-width: 560px) {
 			html { font-size: 17px; }
 			.item { grid-template-columns: minmax(0, 1fr); }
+			.pubs .what h3 { grid-template-columns: minmax(0, 1fr); }
 			.when { padding-top: 0; }
 		}
 
@@ -217,7 +219,8 @@
 			.summary { max-width: none; }
 			.links a { border: 0; }
 			.links a[data-print]::after { content: " (" attr(data-print) ")"; }
-			.pubs small[data-print]::after { content: " · " attr(data-print); }
+			.pubs .what h3 { grid-template-columns: minmax(0, 1fr) 10rem 17rem; }
+			.pubs .short { display: block; }
 			a { text-decoration: none; }
 		}
 	</style>
@@ -296,19 +299,19 @@
 				<li class="item">
 					<span class="when">Talk</span>
 					<div class="what">
-						<h3><a href="https://timssweeney.com/talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small data-print="timssweeney.com/talks/aria">AI Engineer</small></h3>
+						<h3><a href="https://timssweeney.com/talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer</small> <span class="short">timssweeney.com/talks/aria</span></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2019</span>
 					<div class="what">
-						<h3><a href="https://timssweeney.com/writing/ranking-tweets/" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small data-print="timssweeney.com/writing/ranking-tweets">TensorFlow Blog</small></h3>
+						<h3><a href="https://timssweeney.com/writing/ranking-tweets/" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small>TensorFlow Blog</small> <span class="short">timssweeney.com/writing/ranking-tweets</span></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2018</span>
 					<div class="what">
-						<h3><a href="https://timssweeney.com/writing/embeddings/" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small data-print="timssweeney.com/writing/embeddings">Twitter Engineering Blog</small></h3>
+						<h3><a href="https://timssweeney.com/writing/embeddings/" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small>Twitter Engineering Blog</small> <span class="short">timssweeney.com/writing/embeddings</span></h3>
 					</div>
 				</li>
 			</ol>
