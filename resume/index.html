@@ -119,6 +119,7 @@
 		.head h1 em { font-style: normal; font-weight: 500; }
 		.title { font-style: italic; font-size: 1.25rem; line-height: 1.35; }
 		.summary { color: var(--ink); }
+		.expertise { color: var(--ink); font-size: 0.95em; }
 
 		.links {
 			display: flex;
@@ -235,8 +236,9 @@
 
 		<header class="head">
 			<h1>Tim <em>Sweeney</em></h1>
-			<p class="title">Principal Software Engineer · Architect for LLM agents, evaluation and ML infrastructure</p>
-			<p class="summary">Principal engineer and architect of CoreWeave ARIA, Weave and W&amp;B Tables, the agent, evaluation and data systems that machine learning teams rely on. Deep expertise in large language models and agentic systems. Ten years in machine learning infrastructure, from Twitter's ML platform to production AI agents. M.S. Computer Science (Machine Learning, focus on reinforcement learning), Georgia Tech. Speaker and technical writer.</p>
+			<p class="title">Principal Software Engineer · Tech lead for LLM agents, evaluation and ML infrastructure</p>
+			<p class="summary">Principal engineer who repeatedly takes AI products from first prototype to production: W&amp;B Model Registry, one of the first LLM trace viewers, Weave, and CoreWeave ARIA. Ten years across ML infrastructure, product and engineering, and a committed teacher of how these systems work. M.S. Computer Science (Machine Learning, focus on reinforcement learning), Georgia Tech.</p>
+			<p class="expertise"><i>Expertise:</i> LLMs and agentic systems · AI evaluation and observability · platform architecture · developer platforms and API design · ML infrastructure · reinforcement learning · Python and TypeScript</p>
 			<p class="links">
 				<a href="https://timssweeney.com">timssweeney.com</a>
 				<a href="https://github.com/tssweeney" target="_blank" rel="noopener noreferrer" data-print="github.com/tssweeney">GitHub</a>
@@ -251,10 +253,11 @@
 					<span class="when">2025 — now</span>
 					<div class="what">
 						<h3>CoreWeave</h3>
-						<p class="role">Principal Software Engineer</p>
+						<p class="role">Principal Software Engineer · Tech lead, CoreWeave ARIA</p>
 						<ul class="points">
-							<li>Architect of <a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer">CoreWeave ARIA</a>, an AI research agent embedded in Weights &amp; Biases. Designed the agent's core reasoning system on frontier models from OpenAI and Anthropic.</li>
-							<li>Leading ARIA toward an always-on agent that proposes hypotheses, launches experiments on cloud GPUs, and iterates on the results.</li>
+							<li>Led <a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer">CoreWeave ARIA</a>, an AI research agent for ML teams, from first prototype to general availability in CoreWeave Forge in eight months: 10,000+ users and over 99% successful agent turns.</li>
+							<li>Architected the agent runtime, sandboxed execution, LLM gateway, billing, spend controls and security; owns reliability and on-call.</li>
+							<li>Founded the cross-team agent working group; made ARIA a platform other Forge products embed, running on CoreWeave's own inference and sandboxes. Pioneered agent-driven engineering: ARIA is built, tested and monitored largely by AI coding agents.</li>
 						</ul>
 					</div>
 				</li>
@@ -264,8 +267,10 @@
 						<h3>Weights &amp; Biases <small>acquired by CoreWeave, 2025</small></h3>
 						<p class="role">Principal Software Engineer, 2023 — 2025 · Software Engineer, 2020 — 2023</p>
 						<ul class="points">
-							<li>Company architect for W&amp;B Tables and Weave, setting the technical direction for high-scale systems and the developer platforms built on them.</li>
-							<li>Lead maintainer of <a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer">Weave</a>, the open-source SDK for tracing, evaluating and monitoring LLM applications and agents: 1,000+ GitHub stars, 790+ dependent projects, 100+ contributors.</li>
+							<li>Co-led <a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer">Weave</a> from prototype to a revenue-generating LLM evaluation and observability product; set its architecture, roadmap and technical direction and scaled its six-person engineering team.</li>
+							<li>Built most of Weave's evaluation product line (scorers and guardrails, leaderboards, comparisons, playground) as weekly returning users grew about 3× in 2025. Open source: 1,000+ GitHub stars, 790+ dependents.</li>
+							<li>Built one of the first LLM trace viewers in 2023, weeks after GPT-4's release, the starting point for W&amp;B's tracing products. Earlier conceived and shipped W&amp;B Model Registry from idea to launch.</li>
+							<li>Partnered with sales to close several of Weave's largest enterprise deals; forward-deployed with the Aston Martin F1 partnership.</li>
 						</ul>
 					</div>
 				</li>
@@ -275,8 +280,7 @@
 						<h3>Twitter</h3>
 						<p class="role">Product Manager II, Machine Learning Platform</p>
 						<ul class="points">
-							<li>Owned strategy and roadmap for Twitter's internal ML platform: training and serving, experiment tracking, feature management and pipelines.</li>
-							<li>Drove 92% adoption of the core TensorFlow-based platform, contributing to a 1.7% revenue increase in 2018 and a 350% increase in model iteration speed in 2019.</li>
+							<li>Owned strategy for Twitter's internal ML platform; drove 92% adoption of its TensorFlow-based core, contributing to a 1.7% revenue increase in 2018 and 350% faster model iteration in 2019.</li>
 						</ul>
 					</div>
 				</li>
@@ -284,10 +288,19 @@
 					<span class="when">2015 — 2018</span>
 					<div class="what">
 						<h3>Workday</h3>
-						<p class="role">Product Manager, Enterprise Search · promoted twice in under two years</p>
-						<ul class="points">
-							<li>Owned the roadmap for Workday Enterprise Search, including search relevance and machine learning.</li>
-						</ul>
+						<p class="role">Product Manager, Enterprise Search and ML · promoted twice in under two years</p>
+					</div>
+				</li>
+			</ol>
+		</section>
+
+		<section class="block" aria-labelledby="teaching">
+			<h2 id="teaching">Teaching &amp; mentorship</h2>
+			<ol class="items">
+				<li class="item">
+					<span class="when">2020 — now</span>
+					<div class="what">
+						<p class="note">Taught a monthly W&amp;B 101 course; leads architecture deep dives, live debugging sessions and sales enablement; mentored an engineer into tech lead and coached a product manager; conference speaker (AI Engineer World's Fair, W&amp;B Fully Connected).</p>
 					</div>
 				</li>
 			</ol>
@@ -297,9 +310,9 @@
 			<h2 id="talks">Talks &amp; publications</h2>
 			<ol class="items pubs">
 				<li class="item">
-					<span class="when">Talk</span>
+					<span class="when">2026</span>
 					<div class="what">
-						<h3><a href="https://timssweeney.com/talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer</small> <span class="short">timssweeney.com/talks/aria</span></h3>
+						<h3><a href="https://timssweeney.com/talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer World's Fair</small> <span class="short">timssweeney.com/talks/aria</span></h3>
 					</div>
 				</li>
 				<li class="item">
@@ -325,7 +338,7 @@
 					<div class="what">
 						<h3>Georgia Institute of Technology</h3>
 						<p class="role">M.S. Computer Science · Machine Learning specialization, focus on reinforcement learning · GPA 4.0</p>
-						<p class="note">Coursework: Reinforcement Learning and Decision Making, Machine Learning, Artificial Intelligence, AI for Robotics, Machine Learning for Trading, Computer Vision, Graduate Algorithms, Big Data &amp; Visual Analytics, Time Series Analysis · Also: AI Nanodegree, Udacity (2018)</p>
+						<p class="note">Coursework: Reinforcement Learning, Machine Learning, Artificial Intelligence, AI for Robotics, Computer Vision, Graduate Algorithms, Big Data, Time Series Analysis</p>
 					</div>
 				</li>
 				<li class="item">
@@ -333,20 +346,6 @@
 					<div class="what">
 						<h3>Cal Poly, San Luis Obispo</h3>
 						<p class="role">B.S. Business Administration, Information Systems; minor in Computer Science · GPA 3.70 · President, Cal Poly Entrepreneurs</p>
-						<p class="note">Coursework: Systems Programming, Computer Architecture, Discrete Structures, Database Systems, Systems Analysis and Design, Decision Support Systems</p>
-					</div>
-				</li>
-			</ol>
-		</section>
-
-		<section class="block" aria-labelledby="expertise">
-			<h2 id="expertise">Areas of expertise</h2>
-			<ol class="items">
-				<li class="item">
-					<span class="when">Subjects</span>
-					<div class="what">
-						<p class="note">Large language models and agentic systems · AI evaluation and observability · Distributed systems and platform architecture · Developer platforms and API design · ML infrastructure and MLOps · Reinforcement learning · Recommendation and search</p>
-						<p class="note"><i>Languages and tools:</i> Python · TypeScript · TensorFlow · Google Cloud</p>
 					</div>
 				</li>
 			</ol>
