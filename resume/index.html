@@ -220,6 +220,7 @@
 			.summary { max-width: none; }
 			.links a { border: 0; }
 			.links a[data-print]::after { content: " (" attr(data-print) ")"; }
+			.points a[data-print]::after { content: " (" attr(data-print) ")"; font-style: italic; color: var(--muted); }
 			.pubs .what h3 { grid-template-columns: minmax(0, 1fr) 10rem 17rem; }
 			.pubs .short { display: block; }
 			a { text-decoration: none; }
@@ -255,7 +256,7 @@
 						<h3>CoreWeave</h3>
 						<p class="role">Principal Software Engineer · Tech lead, CoreWeave ARIA</p>
 						<ul class="points">
-							<li>Led <a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer">CoreWeave ARIA</a>, an AI research agent for ML teams, from first prototype to general availability in CoreWeave Forge in eight months: 10,000+ users and over 99% successful agent turns.</li>
+							<li>Led <a href="https://timssweeney.com/aria/" target="_blank" rel="noopener noreferrer" data-print="timssweeney.com/aria">CoreWeave ARIA</a>, an AI research agent for ML teams, from first prototype to general availability in CoreWeave Forge in eight months: 10,000+ users and over 99% successful agent turns.</li>
 							<li>Architected the agent runtime, sandboxed execution, LLM gateway, billing, spend controls and security; owns reliability and on-call.</li>
 							<li>Founded the cross-team agent working group; made ARIA a platform other Forge products embed, running on CoreWeave's own inference and sandboxes. Pioneered agent-driven engineering: ARIA is built, tested and monitored largely by AI coding agents.</li>
 						</ul>
@@ -267,7 +268,7 @@
 						<h3>Weights &amp; Biases <small>acquired by CoreWeave, 2025</small></h3>
 						<p class="role">Principal Software Engineer, 2023 — 2025 · Software Engineer, 2020 — 2023</p>
 						<ul class="points">
-							<li>Co-led <a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer">Weave</a> from prototype to a revenue-generating LLM evaluation and observability product; set its architecture, roadmap and technical direction and scaled its six-person engineering team.</li>
+							<li>Co-led <a href="https://github.com/wandb/weave" target="_blank" rel="noopener noreferrer" data-print="github.com/wandb/weave">Weave</a> from prototype to a revenue-generating LLM evaluation and observability product; set its architecture, roadmap and technical direction and scaled its six-person engineering team.</li>
 							<li>Built most of Weave's evaluation product line (scorers and guardrails, leaderboards, comparisons, playground) as weekly returning users grew about 3× in 2025. Open source: 1,000+ GitHub stars, 790+ dependents.</li>
 							<li>Built one of the first LLM trace viewers in 2023, weeks after GPT-4's release, the starting point for W&amp;B's tracing products. Earlier conceived and shipped W&amp;B Model Registry from idea to launch.</li>
 							<li>Partnered with sales to close several of Weave's largest enterprise deals; forward-deployed with the Aston Martin F1 partnership.</li>
