@@ -56,6 +56,11 @@
 		* { box-sizing: border-box; margin: 0; padding: 0; }
 		html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 
+		/* Wide screens: scale the whole page up so it fills the window instead of floating in margin */
+		@media (min-width: 1500px) {
+			html { font-size: clamp(17px, 1.1vw, 23px); }
+		}
+
 		body {
 			background: var(--paper);
 			color: var(--ink);
@@ -70,11 +75,11 @@
 		a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 		.book {
-			max-width: 72rem;
+			max-width: 78rem;
 			margin: 0 auto;
 			display: grid;
-			grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-			gap: clamp(2.5rem, 7vw, 7rem);
+			grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+			gap: clamp(2.5rem, 5vw, 5.5rem);
 			padding-block: var(--page-top);
 		}
 
@@ -115,7 +120,7 @@
 			max-width: 26ch;
 		}
 
-		.bio { color: var(--muted); max-width: 38ch; font-size: 0.95rem; }
+		.bio { color: var(--muted); max-width: 42ch; font-size: 0.95rem; }
 
 		.contact {
 			display: flex;
