@@ -170,6 +170,8 @@
 		.what h3 a { text-decoration: none; }
 		.what h3 a:hover { color: var(--accent); }
 		.note a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--rule); }
+		/* Publications: title on the left, venue (and printed short link) on the right */
+		.pubs .what h3 { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 1rem; }
 		.what h3 small { font-style: italic; font-size: 0.85rem; color: var(--muted); font-weight: 400; }
 		.role { font-style: italic; }
 		.note { color: var(--ink); }
@@ -215,7 +217,7 @@
 			.summary { max-width: none; }
 			.links a { border: 0; }
 			.links a[data-print]::after { content: " (" attr(data-print) ")"; }
-			.what h3[data-print]::after { content: " · " attr(data-print); font-size: 0.75em; font-style: italic; font-weight: 400; color: var(--muted); }
+			.pubs small[data-print]::after { content: " · " attr(data-print); }
 			a { text-decoration: none; }
 		}
 	</style>
@@ -290,23 +292,23 @@
 
 		<section class="block" aria-labelledby="talks">
 			<h2 id="talks">Talks &amp; publications</h2>
-			<ol class="items">
+			<ol class="items pubs">
 				<li class="item">
 					<span class="when">Talk</span>
 					<div class="what">
-						<h3 data-print="timssweeney.com/talks/aria"><a href="../talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer</small></h3>
+						<h3><a href="https://timssweeney.com/talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small data-print="timssweeney.com/talks/aria">AI Engineer</small></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2019</span>
 					<div class="what">
-						<h3 data-print="timssweeney.com/writing/ranking-tweets"><a href="../writing/ranking-tweets/" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small>TensorFlow Blog</small></h3>
+						<h3><a href="https://timssweeney.com/writing/ranking-tweets/" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small data-print="timssweeney.com/writing/ranking-tweets">TensorFlow Blog</small></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2018</span>
 					<div class="what">
-						<h3 data-print="timssweeney.com/writing/embeddings"><a href="../writing/embeddings/" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small>Twitter Engineering Blog</small></h3>
+						<h3><a href="https://timssweeney.com/writing/embeddings/" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small data-print="timssweeney.com/writing/embeddings">Twitter Engineering Blog</small></h3>
 					</div>
 				</li>
 			</ol>
