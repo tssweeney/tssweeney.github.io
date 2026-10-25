@@ -215,6 +215,7 @@
 			.summary { max-width: none; }
 			.links a { border: 0; }
 			.links a[data-print]::after { content: " (" attr(data-print) ")"; }
+			.what h3[data-print]::after { content: " · " attr(data-print); font-size: 0.75em; font-style: italic; font-weight: 400; color: var(--muted); }
 			a { text-decoration: none; }
 		}
 	</style>
@@ -293,19 +294,19 @@
 				<li class="item">
 					<span class="when">Talk</span>
 					<div class="what">
-						<h3><a href="https://ai.engineer/talks/hd7TOvmyAxU-ai-research-agent-that-runs-your-experiments" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer</small></h3>
+						<h3 data-print="timssweeney.com/talks/aria"><a href="../talks/aria/" target="_blank" rel="noopener noreferrer">An AI research agent that runs your experiments</a> <small>AI Engineer</small></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2019</span>
 					<div class="what">
-						<h3><a href="https://blog.tensorflow.org/2019/03/ranking-tweets-with-tensorflow.html" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small>TensorFlow Blog</small></h3>
+						<h3 data-print="timssweeney.com/writing/ranking-tweets"><a href="../writing/ranking-tweets/" target="_blank" rel="noopener noreferrer">Ranking Tweets with TensorFlow</a> <small>TensorFlow Blog</small></h3>
 					</div>
 				</li>
 				<li class="item">
 					<span class="when">2018</span>
 					<div class="what">
-						<h3><a href="https://blog.twitter.com/engineering/en_us/topics/insights/2018/embeddingsattwitter.html" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small>Twitter Engineering Blog</small></h3>
+						<h3 data-print="timssweeney.com/writing/embeddings"><a href="../writing/embeddings/" target="_blank" rel="noopener noreferrer">Embeddings at Twitter</a> <small>Twitter Engineering Blog</small></h3>
 					</div>
 				</li>
 			</ol>
