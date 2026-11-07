@@ -214,21 +214,24 @@
 		.links a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
 		/* Talk */
+		/* Video on the left; text block spans the video's full height: label and title at its top edge, links on its bottom edge */
 		.talk {
 			display: grid;
-			grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
-			gap: 1.5rem;
-			align-items: end;
+			grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+			gap: 1.75rem;
+			align-items: stretch;
 		}
 
-		.talk-body { display: flex; flex-direction: column; gap: 0.6rem; min-width: 0; }
+		.chapter[aria-label="Talk"] { margin-bottom: -1.5rem; }
+		.talk-body { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+		.talk-body .links { margin-top: auto; }
 		.talk .play { left: 0.75rem; bottom: 0.75rem; }
 
 		.talk h3 {
 			font-family: var(--display);
 			font-weight: 400;
-			font-size: clamp(1.35rem, 2.2vw, 1.6rem);
-			line-height: 1.15;
+			font-size: 1.4rem;
+			line-height: 1.2;
 			letter-spacing: -0.02em;
 			text-wrap: balance;
 		}
@@ -409,6 +412,8 @@
 			.builds li { grid-template-columns: minmax(0, 1fr); }
 			.builds .meta { grid-column: 1; grid-row: auto; }
 			.talk { grid-template-columns: minmax(0, 1fr); gap: 1rem; }
+			.talk-body .links { margin-top: 0.25rem; }
+			.chapter[aria-label="Talk"] { margin-bottom: 0; }
 		}
 
 		@media (prefers-reduced-motion: no-preference) {
@@ -466,7 +471,7 @@
 				<div class="chapter-head"><h2 id="now">Work</h2><span>Selected</span></div>
 				<div class="work">
 					<article class="entry">
-						<p class="meta"><span class="now">Now</span> · Tech lead · CoreWeave</p>
+						<p class="meta"><span class="now">Now</span> · Architect &amp; Lead Engineer · CoreWeave</p>
 						<h3><a href="https://wandb.ai/site/agent/" target="_blank" rel="noopener noreferrer">CoreWeave ARIA</a></h3>
 						<p>An AI research agent for ML teams, now generally available in CoreWeave Forge. Ask questions of your experiments, runs and charts in plain language, and let ARIA propose hypotheses, launch experiments on cloud GPUs, and iterate on the results.</p>
 						<div class="links">
