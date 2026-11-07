@@ -29,7 +29,7 @@
 	-->
 
 	<style>
-		/* Layout: a left-aligned, full-width document set entirely in EB Garamond, with an italic date gutter. Always prints to a single Letter page. */
+		/* Layout: a left-aligned, full-width document set entirely in upright EB Garamond (no italics), with a muted date gutter. Always prints to a single Letter page. */
 		:root {
 			--paper: #f3f3ef;
 			--ink: #17191c;
@@ -117,9 +117,10 @@
 		}
 
 		.head h1 em { font-style: normal; font-weight: 500; }
-		.title { font-style: italic; font-size: 1.25rem; line-height: 1.35; }
+		.title { font-size: 1.25rem; line-height: 1.35; color: var(--muted); }
 		.summary { color: var(--ink); }
 		.expertise { color: var(--ink); font-size: 0.95em; }
+		.expertise .label { font-variant-caps: all-small-caps; letter-spacing: 0.08em; color: var(--muted); margin-right: 0.4em; }
 
 		.links {
 			display: flex;
@@ -159,7 +160,6 @@
 		}
 
 		.when {
-			font-style: italic;
 			font-size: 0.95rem;
 			color: var(--muted);
 			padding-top: 0.2rem;
@@ -173,9 +173,9 @@
 		.note a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--rule); }
 		/* Publications: title, venue and (in print) short link as aligned columns */
 		.pubs .what h3 { display: grid; grid-template-columns: minmax(0, 1fr) 13rem; gap: 0 1.5rem; align-items: baseline; }
-		.pubs .short { display: none; font-family: var(--body); font-style: italic; font-weight: 400; font-size: 0.85rem; color: var(--muted); }
-		.what h3 small { font-style: italic; font-size: 0.85rem; color: var(--muted); font-weight: 400; }
-		.role { font-style: italic; }
+		.pubs .short { display: none; font-family: var(--body); font-weight: 400; font-size: 0.85rem; color: var(--muted); }
+		.what h3 small { font-size: 0.85rem; color: var(--muted); font-weight: 400; }
+		.role { font-weight: 500; color: var(--muted); }
 		.note { color: var(--ink); }
 
 		.points { padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.3rem; color: var(--ink); }
@@ -183,7 +183,7 @@
 		.points a { color: var(--ink); text-underline-offset: 3px; text-decoration-color: var(--rule); }
 		.points a:hover { color: var(--accent); }
 
-		.footnote { font-style: italic; font-size: 0.85rem; color: var(--faint); }
+		.footnote { font-size: 0.85rem; color: var(--faint); }
 
 		@media (max-width: 560px) {
 			html { font-size: 17px; }
@@ -220,7 +220,7 @@
 			.summary { max-width: none; }
 			.links a { border: 0; }
 			.links a[data-print]::after { content: " (" attr(data-print) ")"; }
-			.points a[data-print]::after { content: " (" attr(data-print) ")"; font-style: italic; color: var(--muted); }
+			.points a[data-print]::after { content: " (" attr(data-print) ")"; color: var(--muted); }
 			.pubs .what h3 { grid-template-columns: minmax(0, 1fr) 10rem 17rem; }
 			.pubs .short { display: block; }
 			a { text-decoration: none; }
@@ -239,7 +239,7 @@
 			<h1>Tim <em>Sweeney</em></h1>
 			<p class="title">Principal Software Engineer · Architect for AI Agents, LLM Observability, and ML Infrastructure</p>
 			<p class="summary">Principal engineer who repeatedly takes AI products from first prototype to production: W&amp;B Model Registry, one of the first LLM trace viewers, Weave, and CoreWeave ARIA. Ten years across ML infrastructure, product and engineering, and a committed teacher of how these systems work. M.S. Computer Science (Machine Learning, focus on reinforcement learning), Georgia Tech.</p>
-			<p class="expertise"><i>Expertise:</i> LLMs and agentic systems · AI evaluation and observability · platform architecture · developer platforms and API design · ML infrastructure · reinforcement learning · Python and TypeScript</p>
+			<p class="expertise"><span class="label">Expertise</span> LLMs and agentic systems · AI evaluation and observability · platform architecture · developer platforms and API design · ML infrastructure · reinforcement learning · Python and TypeScript</p>
 			<p class="links">
 				<a href="https://timssweeney.com">timssweeney.com</a>
 				<a href="https://github.com/tssweeney" target="_blank" rel="noopener noreferrer" data-print="github.com/tssweeney">GitHub</a>
