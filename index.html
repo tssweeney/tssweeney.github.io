@@ -217,6 +217,8 @@
 		/* Video spans the full column; label, title and links sit underneath */
 		.talk { display: flex; flex-direction: column; gap: 1.25rem; }
 		.talk-body { display: flex; flex-direction: column; gap: 0.5rem; min-width: 0; }
+		/* Pull Work closer to the talk and mark the break with a rule */
+		.chapter[aria-labelledby="now"] { margin-top: -3rem; padding-top: 1.75rem; border-top: 1px solid var(--rule); }
 		.talk .play { left: 0.75rem; bottom: 0.75rem; }
 
 		.talk h3 {
